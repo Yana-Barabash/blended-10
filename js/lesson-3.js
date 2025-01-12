@@ -122,4 +122,16 @@ const getUsersWithFriend = (users, friendName)=>{
     .map((user)=>user.name);
     
 }
-console.log(getUsersWithFriend(users, 'Briana Decker'));
+//console.log(getUsersWithFriend(users, 'Briana Decker'));
+
+// Отримати загальну суму балансу (поле balance) всіх користувачів.
+// console.log(calculateTotalBalance(users)); // 20916
+
+const calculateTotalBalance = (users) => {
+  return users.reduce((total, user) => {
+    total += user.balance
+    return total
+  } ,0 )
+  
+}
+console.log(calculateTotalBalance(users))
