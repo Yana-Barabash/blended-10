@@ -168,6 +168,39 @@ class Client{
 
 const clientClas = new Client('Taras','taras@gmail.com');
 clientClas.login = 'Ivan';
-console.log(clientClas.login);
+//console.log(clientClas.login);
 
-console.log(clientClas);
+//console.log(clientClas);
+
+// Напиши клас Notes який управляє колекцією нотаток у приватній властивості items.
+//Нотатка це об'єкт із властивостями id, text і priority
+//Додай класу статичну властивість Priopity,
+//у якій зберігатиметься об'єкт із пріоритетами HIGHT, LOW.
+//Додай методи addNote(note), removeNote(id) updatePriority(id, newPriority) getMotes()
+
+class Notes {
+  #items
+  constructor() {
+    this.#items = [];
+  }
+  static Priority = {
+    HIGHT:"Hight",
+   LOW:"Low",
+  }
+  addNote(note) {
+   this.#items.push(note)
+  }
+  removeNote(id) {
+    this.#items = this.#items.filter(note => note.id !== id)
+  }
+  updatePriority(id, newPriority) {
+   const current =  this.#items.find(note => note.id === id)
+    if (current) {
+      current.priority = newPriority
+    }
+
+  }
+}
+const note = {
+    id: 3
+}
