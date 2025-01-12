@@ -134,4 +134,40 @@ const calculateTotalBalance = (users) => {
   } ,0 )
   
 }
-console.log(calculateTotalBalance(users))
+// console.log(calculateTotalBalance(users))
+
+
+
+//Напиши клас Client який створює об'єкт
+//з ​​властивостями login email
+//Оголоси приватні властивості #login #email,
+//доступ до яких зроби через геттер та сеттер login email
+
+class Client{
+    #login;
+    #email;
+
+    constructor(login,email){
+        this.#login = login;
+        this.#email =email;
+    }
+    set login(login){
+        this.#login = login;
+     }
+    set email(email){
+        this.#email = email;
+    }
+    get login(){
+        return this.#login;
+         
+    }
+    get email(){
+        return this.#email;
+    }
+}
+
+const clientClas = new Client('Taras','taras@gmail.com');
+clientClas.login = 'Ivan';
+console.log(clientClas.login);
+
+console.log(clientClas);
