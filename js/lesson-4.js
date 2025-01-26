@@ -12,18 +12,17 @@
 Після натискання кнопки "SWAP ME" здійснюється обмін вмістом між двома інпутами.
 Ви можете натиснути на неї кілька разів або вручну змінити вміст інпутів.
 */
-const inputFirst = document.querySelector('#leftSwapInput');
-const inputSecond = document.querySelector('#rightSwapInput');
-const button1 = document.querySelector('#swapButton');
+// const inputFirst = document.querySelector('#leftSwapInput');
+// const inputSecond = document.querySelector('#rightSwapInput');
+// const button1 = document.querySelector('#swapButton');
 
-button1.addEventListener('click',funcSwap)
+// button1.addEventListener('click',funcSwap)
 
-function funcSwap(e){
-    const third = inputFirst.value ;
-    inputFirst.value = inputSecond.value;
-    inputSecond.value = third;
-}
-
+// function funcSwap(e){
+//     const third = inputFirst.value ;
+//     inputFirst.value = inputSecond.value;
+//     inputSecond.value = third;
+// }
 
 /*
 Завдання 3
@@ -31,15 +30,46 @@ function funcSwap(e){
 "Розкрити", при повторному натисканні текст знову стає доступним
 і кнопка набуває початкового вигляду.
 */
-const button = document.querySelector("#passwordButton");
-const input = document.querySelector("#passwordInput");
-button.addEventListener('click', changeValue)
-  function changeValue(event) {
-    if (input.type === "text") {
-        button.textContent = "Розкрити"
-        input.type = "password";
-    } else {
-        button.textContent = "Приховати"
-        input.type = "text";
-    }
-  }
+// const button = document.querySelector("#passwordButton");
+// const input = document.querySelector("#passwordInput");
+// button.addEventListener('click', changeValue)
+//   function changeValue(event) {
+//     if (input.type === "text") {
+//         button.textContent = "Розкрити"
+//         input.type = "password";
+//     } else {
+//         button.textContent = "Приховати"
+//         input.type = "text";
+//     }
+//   }
+
+// ЗАДАЧА 4
+// Кнопка "Зменшити" робить квадрат менше на 10 пікселів, кнопка "Збільшити" - більше на 10 пікселів.
+// https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle
+// */
+// https://github.com/kashirin-olexsandr/test12/blob/main/DOM/style.css
+const buttonDecrease = document.querySelector("#decrease");
+const buttonIncrease = document.querySelector("#increase");
+const box = document.querySelector("#box");
+
+buttonDecrease.addEventListener("click", funcDecrease);
+buttonIncrease.addEventListener("click", funcIncrease);
+
+function funcDecrease(e) {
+  const boxWidth = parseInt(getComputedStyle(box).width);
+  const boxHeight = parseInt(getComputedStyle(box).height);
+
+  box.style.width = boxWidth - 10 + "px";
+  console.log(box.style.width);
+  box.style.height = boxHeight - 10 + "px";
+  console.log(box.style.height);
+}
+function funcIncrease(e) {
+  const boxWidth = parseInt(getComputedStyle(box).width);
+  const boxHeight = parseInt(getComputedStyle(box).height);
+
+  box.style.width = boxWidth + 10 + "px";
+  console.log(box.style.width);
+  box.style.height = boxHeight + 10 + "px";
+  console.log(box.style.height);
+}
