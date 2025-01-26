@@ -73,3 +73,21 @@ function funcIncrease(e) {
   box.style.height = boxHeight + 10 + "px";
   console.log(box.style.height);
 }
+
+
+/*
+Завдання 6
+Натиснувши кнопку "Подвоювати", збільшити значення
+у кожному елементі списку у 2 рази
+*/
+const button = document.querySelector("#double");
+button.addEventListener("click",() => {
+const listItem = document.querySelectorAll(".listItem")
+ console.log(listItem)
+  listItem.forEach(item => {
+    item.textContent = item.textContent * 2 
+    
+  })
+  
+}
+)
